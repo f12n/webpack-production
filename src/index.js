@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import './style.css';
+// import Img from './image.jpg';
 
 function component() {
     var element = document.createElement('div');
@@ -7,6 +8,10 @@ function component() {
     // Lodash, currently included via a script, is required for this line to work
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
     element.classList.add('hello');
+
+    /*     var myImage = new Image();
+        myImage.src = Img;
+        element.appendChild(myImage); */
 
     return element;
 }
