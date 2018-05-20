@@ -1,3 +1,3 @@
-Getting Started
+Asset Management
 
-https://webpack.js.org/guides/getting-started/
+https://webpack.js.org/guides/asset-management/
