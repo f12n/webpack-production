@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import './style.css';
 // import Img from './image.jpg';
+import Data from './data.xml';
 
 function component() {
     var element = document.createElement('div');
@@ -12,7 +13,7 @@ function component() {
     /*     var myImage = new Image();
         myImage.src = Img;
         element.appendChild(myImage); */
-
+    console.log(Data);
     return element;
 }
 
