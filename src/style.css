@@ -11,15 +11,14 @@ body {
     background: url('./image.jpg') no-repeat center center;
 }
 
-
-/* @font-face {
-    font-family: 'MyFont';
-    src: url('./my-font.woff2') format('woff2'), + url('./my-font.woff') format('woff');
-    font-weight: 600;
+@font-face {
+    font-family: 'juicy_fruity_highlightsRg';
+    src: url('./fonts/juicy_fruity_highlights-webfont.woff2') format('woff2'), url('./fonts/juicy_fruity_highlights-webfont.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
-} */
+}
 
 .hello {
     color: red;
-    /* font-family: 'MyFont'; */
+    font-family: 'juicy_fruity_highlightsRg';
 }
