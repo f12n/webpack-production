@@ -36,3 +36,8 @@ https://webpack.js.org/configuration/dev-server
 
 Now that your server is working, you might want to give Hot Module Replacement a try:
 https://webpack.js.org/guides/hot-module-replacement
+
+
+Using webpack-dev-middleware
+
+webpack-dev-middleware is a wrapper that will emit files processed by webpack to a server. This is used in webpack-dev-server internally, however it's available as a separate package to allow more custom setups if desired. 
