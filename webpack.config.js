@@ -6,6 +6,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
+    // tells webpack-dev-server to serve the files from the dist directory on localhost:8080.
+    devServer: {
+        contentBase: './dist'
+    },
     entry: {
         app: './src/index.js',
         print: './src/print.js'
