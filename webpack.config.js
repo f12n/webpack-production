@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 // npx webpack --config webpack.config.js
 module.exports = {
     mode: 'development',
+    devtool: 'inline-source-map',
     entry: {
         app: './src/index.js',
         print: './src/print.js'
@@ -16,7 +17,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: 'Output Management'
+            title: 'Development'
         })
     ]
 };
