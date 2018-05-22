@@ -41,3 +41,21 @@ https://webpack.js.org/guides/hot-module-replacement
 Using webpack-dev-middleware
 
 webpack-dev-middleware is a wrapper that will emit files processed by webpack to a server. This is used in webpack-dev-server internally, however it's available as a separate package to allow more custom setups if desired. 
+
+
+Adjusting Your Text Editor
+
+When using automatic compilation of your code, you could run into issues when saving your files. Some editors have a "safe write" feature that can potentially interfere with recompilation.
+
+To disable this feature in some common editors, see the list below:
+
+Sublime Text 3 - Add atomic_save: "false" to your user preferences.
+IntelliJ - use search in the preferences to find "safe write" and disable it.
+Vim - add :set backupcopy=yes to your settings.
+WebStorm - uncheck Use "safe write" in Preferences > Appearance & Behavior > System Settings.
+
+
+Conclusion
+
+Now that you've learned how to automatically compile your code and run a simple development server, you can check out the next guide, which will cover Hot Module Replacement：
+https://webpack.js.org/guides/hot-module-replacement
