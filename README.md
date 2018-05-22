@@ -22,9 +22,9 @@ It quickly becomes a hassle to manually run npm run build every time you want to
 
 There are a couple of different options available in webpack that help you automatically compile your code whenever it changes:
 
-webpack's Watch Mode
-webpack-dev-server
-webpack-dev-middleware
+webpack's Watch Mode (can auto recompile, need to refresh browser manual)
+webpack-dev-server (can auto recompile, browser automatically loading up page)
+webpack-dev-middleware (can auto recompile, need to refresh browser manual)
 
 Using webpack-dev-server
 
