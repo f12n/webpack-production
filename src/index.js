@@ -1,5 +1,7 @@
 import _ from 'lodash';
 import printMe from './print';
+import './style/index.sass';
+import './style/global.css';
 
 /** is used by convention to determine:
  * dev-vs-prod behavior by server tools, build scripts, and client-side libraries
@@ -12,6 +14,7 @@ function component() {
     var element = document.createElement('div');
     var btn = document.createElement('button');
 
+    element.classList.add('main');
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
     btn.innerHTML = 'Click and check the console';
     btn.onclick = printMe;
