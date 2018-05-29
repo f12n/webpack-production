@@ -5,10 +5,14 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     // entry: ['babel-polyfill', './src/index.jsx'],
-    entry: ["babel-polyfill", "./src/index.jsx"],
+    entry: {
+        index: "./src/index.jsx",
+        one: './src/components/one.jsx',
+        two: './src/components/two.jsx'
+    },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
-        extensions: [".ts", ".tsx", ".js", ".jsx", ".sass", ".scss"]
+        extensions: [".ts", ".tsx", ".js", ".jsx", ".css", ".sass", ".scss"]
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
@@ -47,7 +51,7 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: ['babel-preset-env', 'babel-preset-react']
+                    presets: ['babel-preset-react']
                 }
             }
         }]

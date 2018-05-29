@@ -1,24 +1,53 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const common = require('./webpack.common.js');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
+function recursiveIssuer(m) {
+    if (m.issuer) {
+        return recursiveIssuer(m.issuer);
+    } else if (m.name) {
+        return m.name;
+    } else {
+        return false;
+    }
+}
+
 module.exports = merge(common, {
     optimization: {
+        /*         splitChunks: {
+                    cacheGroups: {
+                        styles: {
+                            name: 'styles',
+                            test: /\.css$/,
+                            chunks: 'all',
+                            enforce: true
+                        }
+                    }
+                }, */
+
         splitChunks: {
             cacheGroups: {
-                styles: {
-                    name: 'styles',
-                    test: /\.css$/,
+                fooStyles: {
+                    name: 'one',
+                    test: (m, c, entry = 'one') => m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
+                    chunks: 'all',
+                    enforce: true
+                },
+                barStyles: {
+                    name: 'two',
+                    test: (m, c, entry = 'two') => m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
                     chunks: 'all',
                     enforce: true
                 }
             }
         },
+
         minimizer: [
             new UglifyJSPlugin({
                 cache: true,
@@ -46,7 +75,15 @@ module.exports = merge(common, {
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
-            filename: "[name].[chunkHash].css"
+            // filename: "[name].[chunkHash].css"
+
+            // using contenthash for long term hash
+            filename: "[name].[contenthash].css"
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Production',
+            template: './index.html',
+            favicon: './favicon.ico'
         })
     ],
     module: {
