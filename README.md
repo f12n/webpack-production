@@ -36,6 +36,11 @@ It is crucial to minimize your CSS on production, please see [Minimizing for Pro
 #### extract CSS into separate files
 [MiniCssExtractPlugin](https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production)
 
+TODO: minimizing-for-production: Advanced configuration example(postcss-loader config)
+
+#### Minimizing For Production
+https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production
+
 
 ### CLI Alternatives
 Some of what has been described above is also achievable via the command line. For example, the --optimize-minimize flag will include the UglifyJSPlugin behind the scenes. The --define process.env.NODE_ENV="'production'" will do the same for the DefinePlugin instance described above. And, webpack -p will automatically invoke both those flags and thus the plugins to be included.
