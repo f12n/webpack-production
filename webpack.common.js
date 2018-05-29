@@ -4,13 +4,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    entry: {
-        app: './src/index.js'
+    // entry: ['babel-polyfill', './src/index.jsx'],
+    entry: ["babel-polyfill", "./src/index.jsx"],
+    resolve: {
+        // Add `.ts` and `.tsx` as a resolvable extension.
+        extensions: [".ts", ".tsx", ".js", ".jsx", ".sass", ".scss"]
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: 'Production'
+            title: 'Production',
+            template: './index.html',
+            favicon: './favicon.ico'
         })
     ],
     output: {
@@ -26,6 +31,25 @@ module.exports = {
                 'css-loader',
                 'sass-loader',
             ],
+        }, {
+            test: /\.js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['babel-preset-env', 'babel-preset-react']
+                }
+            }
+        }, {
+            // test: /\.(js|jsx)$/,
+            test: /\.jsx$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['babel-preset-env', 'babel-preset-react']
+                }
+            }
         }]
     }
 };

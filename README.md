@@ -56,3 +56,6 @@ tree shaking
 [devtool](https://webpack.js.org/configuration/)
 Minimize CSS
 It is crucial to minimize your CSS on production, please see [Minimizing for Production](https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production) section.
+
+[html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin#configuration)
+https://segmentfault.com/a/1190000007294861
