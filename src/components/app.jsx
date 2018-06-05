@@ -5,36 +5,10 @@ import VisibleTodoList from '../containers/visibleTodos'
 
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 
-const App = () => (
-  <div>
-    <AddTodo />
-    <VisibleTodoList />
-    <Footer />
-    <ul>
-      <li>
-        <NavLink
-          to={'/one'}
-          activeStyle={{
-            textDecoration: 'none',
-            color: 'black'
-          }}
-        >
-          {'----one----'}
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to={'/two'}
-          activeStyle={{
-            textDecoration: 'none',
-            color: 'black'
-          }}
-        >
-          {'----two----'}
-        </NavLink>
-      </li>
-    </ul>
-  </div>
-)
-
-export default App
+export default class App extends React.Component {
+  render() {
+    return (
+      <div>es6 syntax class</div>
+    );
+  }
+}

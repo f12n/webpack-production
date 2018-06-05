@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
     // entry: ['babel-polyfill', './src/index.jsx'],
     entry: {
-        index: "./src/index.jsx",
+        index: "./src/root.jsx",
         one: './src/components/one.jsx',
         two: './src/components/two.jsx'
     },
@@ -23,7 +23,6 @@ module.exports = {
         })
     ],
     output: {
-        // publicPath: '/',
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
@@ -36,22 +35,12 @@ module.exports = {
                 'sass-loader',
             ],
         }, {
-            test: /\.js$/,
+            test: /\.(js|jsx)$/,
             exclude: /(node_modules|bower_components)/,
             use: {
                 loader: 'babel-loader',
                 options: {
                     presets: ['babel-preset-env', 'babel-preset-react']
-                }
-            }
-        }, {
-            // test: /\.(js|jsx)$/,
-            test: /\.jsx$/,
-            exclude: /(node_modules|bower_components)/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['babel-preset-react']
                 }
             }
         }]

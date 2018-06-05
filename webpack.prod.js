@@ -26,7 +26,7 @@ module.exports = merge(common, {
                             name: 'styles',
                             test: /\.css$/,
                             chunks: 'all',
-                            enforce: true
+                            enforce: true           //preload
                         }
                     }
                 }, */
@@ -63,7 +63,7 @@ module.exports = merge(common, {
     mode: 'production',
 
     // easy running benchmark tests 
-    devtool: 'source-map',
+    // devtool: 'source-map',
     // Avoid inline-*** and eval-*** use in production as 
     // they can increase bundle size and reduce the overall performance.
     plugins: [
