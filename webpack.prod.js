@@ -6,6 +6,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./webpack.common.js');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+/**
+ * Minimizing For Production:
+ * 1.need to add it to plugins
+ * 2.optimization.minimizer
+ * */
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 function recursiveIssuer(m) {
@@ -20,17 +25,6 @@ function recursiveIssuer(m) {
 
 module.exports = merge(common, {
     optimization: {
-        /*         splitChunks: {
-                    cacheGroups: {
-                        styles: {
-                            name: 'styles',
-                            test: /\.css$/,
-                            chunks: 'all',
-                            enforce: true           //preload
-                        }
-                    }
-                }, */
-
         splitChunks: {
             cacheGroups: {
                 fooStyles: {
@@ -78,7 +72,8 @@ module.exports = merge(common, {
             // filename: "[name].[chunkHash].css"
 
             // using contenthash for long term hash
-            filename: "[name].[contenthash].css"
+            filename: "[name].[contenthash].css",
+            chunkFilename: "[id].[contenthash].css"
         }),
         new HtmlWebpackPlugin({
             title: 'Production',
@@ -92,8 +87,14 @@ module.exports = merge(common, {
             // on production builds without style-loader in the loaders chain
             test: /\.s?[ac]ss$/,
             use: [
+                /**
+                 * This plugin should be used only on production builds 
+                 * without style-loader in the loaders chain, 
+                 * especially if you want to have HMR in development.
+                 */
                 MiniCssExtractPlugin.loader,
                 'css-loader',
+                'postcss-loader',
                 'sass-loader',
             ],
         }]

@@ -27,22 +27,26 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     module: {
-        rules: [{
-            test: /\.s?[ac]ss$/,
-            use: [
-                'style-loader',
-                'css-loader',
-                'sass-loader',
-            ],
-        }, {
-            test: /\.(js|jsx)$/,
-            exclude: /(node_modules|bower_components)/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['babel-preset-env', 'babel-preset-react']
+        rules: [
+            /* {
+                            test: /\.s?[ac]ss$/,
+                            use: [
+                                'style-loader',
+                                'css-loader',
+                                'postcss-loader',
+                                'sass-loader',
+                            ],
+                        }, */
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['babel-preset-env', 'babel-preset-react']
+                    }
                 }
             }
-        }]
+        ]
     }
 };

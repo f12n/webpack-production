@@ -36,7 +36,12 @@ It is crucial to minimize your CSS on production, please see [Minimizing for Pro
 #### extract CSS into separate files
 [MiniCssExtractPlugin](https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production)
 
-TODO: minimizing-for-production: Advanced configuration example(postcss-loader config)
+minimizing-for-production: Advanced configuration example(postcss-loader config)
+postcss-loader need to add: 
+* postcss-loader
+* postcss.config.js
+
+please see the comments in postcss.config.js file
 
 #### Minimizing For Production
 https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production
